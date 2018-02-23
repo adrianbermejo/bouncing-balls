@@ -29,6 +29,7 @@ public class BallDemo
      */
     public void bounce(int nBolas)
     {
+        Random aleatorio = new Random();
         int ground = 400;   // position of the ground line
 
         myCanvas.setVisible(true);
@@ -37,7 +38,14 @@ public class BallDemo
         myCanvas.drawLine(50, ground, 550, ground);
         //crearvarias bolas
         for(int i=0;i<nBolas;i++){
-            BouncingBall ball = new BouncingBall(50+15*i, 50+i, 16, Color.BLUE, ground, myCanvas);
+            int radio= aleatorio.nextInt(25)+4;
+            int r =aleatorio.nextInt(256);
+            int v =aleatorio.nextInt(256);
+            int a =aleatorio.nextInt(256); 
+            int x =aleatorio.nextInt(256);
+            int y =aleatorio.nextInt(156); 
+            Color color= new Color(r,v,a);
+            BouncingBall ball = new BouncingBall(x, y, radio, color, ground, myCanvas);
             ball.draw();
             misBolas.add(ball);
         }
